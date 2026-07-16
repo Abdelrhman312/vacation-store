@@ -31,5 +31,5 @@ export function buildWhatsAppUrl(
   ];
 
   const text = encodeURIComponent(lines.join("\n"));
-  return `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "201234567890"}?text=${text}`;
+  return `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "01069047415"}?text=${text}`;
 }
