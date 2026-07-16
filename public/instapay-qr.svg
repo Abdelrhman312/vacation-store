@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#ffffff"/>
+  <rect x="30" y="30" width="110" height="110" fill="#111827"/>
+  <rect x="45" y="45" width="80" height="80" fill="#ffffff"/>
+  <rect x="60" y="60" width="50" height="50" fill="#111827"/>
+  <rect x="260" y="30" width="110" height="110" fill="#111827"/>
+  <rect x="275" y="45" width="80" height="80" fill="#ffffff"/>
+  <rect x="290" y="60" width="50" height="50" fill="#111827"/>
+  <rect x="30" y="260" width="110" height="110" fill="#111827"/>
+  <rect x="45" y="275" width="80" height="80" fill="#ffffff"/>
+  <rect x="60" y="290" width="50" height="50" fill="#111827"/>
+  <rect x="140" y="140" width="120" height="120" fill="#111827"/>
+  <rect x="155" y="155" width="90" height="90" fill="#ffffff"/>
+  <rect x="170" y="170" width="60" height="60" fill="#111827"/>
+  <g fill="#111827">
+    <rect x="140" y="30" width="20" height="20"/>
+    <rect x="180" y="30" width="20" height="20"/>
+    <rect x="220" y="30" width="20" height="20"/>
+    <rect x="140" y="70" width="20" height="20"/>
+    <rect x="220" y="70" width="20" height="20"/>
+    <rect x="140" y="110" width="20" height="20"/>
+    <rect x="180" y="110" width="20" height="20"/>
+    <rect x="220" y="110" width="20" height="20"/>
+    <rect x="30" y="140" width="20" height="20"/>
+    <rect x="70" y="140" width="20" height="20"/>
+    <rect x="110" y="140" width="20" height="20"/>
+    <rect x="260" y="140" width="20" height="20"/>
+    <rect x="300" y="140" width="20" height="20"/>
+    <rect x="340" y="140" width="20" height="20"/>
+    <rect x="30" y="180" width="20" height="20"/>
+    <rect x="110" y="180" width="20" height="20"/>
+    <rect x="260" y="180" width="20" height="20"/>
+    <rect x="340" y="180" width="20" height="20"/>
+    <rect x="30" y="220" width="20" height="20"/>
+    <rect x="70" y="220" width="20" height="20"/>
+    <rect x="110" y="220" width="20" height="20"/>
+    <rect x="260" y="220" width="20" height="20"/>
+    <rect x="300" y="220" width="20" height="20"/>
+    <rect x="340" y="220" width="20" height="20"/>
+    <rect x="140" y="260" width="20" height="20"/>
+    <rect x="220" y="260" width="20" height="20"/>
+    <rect x="140" y="300" width="20" height="20"/>
+    <rect x="180" y="300" width="20" height="20"/>
+    <rect x="220" y="300" width="20" height="20"/>
+    <rect x="140" y="340" width="20" height="20"/>
+    <rect x="180" y="340" width="20" height="20"/>
+    <rect x="220" y="340" width="20" height="20"/>
+  </g>
+  <text x="200" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#6b7280">Replace this image anytime</text>
+</svg>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { PaymentMethod } from "@/lib/types";
 import { PAYMENT_DETAILS } from "@/lib/products";
@@ -9,11 +10,6 @@ interface PaymentMethodsProps {
   selected: PaymentMethod;
   onChange: (method: PaymentMethod) => void;
 }
-
-const INSTAPAY_QR_PATTERN = [
-  1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1,
-  0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1,
-];
 
 const METHODS: {
   id: PaymentMethod;
@@ -83,16 +79,13 @@ export default function PaymentMethods({
 
         {selected === "instapay" && (
           <div className="mt-3 flex flex-col items-center gap-2 rounded-lg bg-white border border-dashed border-surface-border p-4">
-            <div className="grid grid-cols-7 gap-0.5 p-2 bg-white">
-              {INSTAPAY_QR_PATTERN.map((filled, i) => (
-                <div
-                  key={i}
-                  className={`h-2.5 w-2.5 sm:h-3 sm:w-3 ${
-                    filled ? "bg-gray-900" : "bg-white"
-                  }`}
-                />
-              ))}
-            </div>
+            <Image
+              src="/confirm instapay.jpg"
+              alt="InstaPay QR code"
+              width={180}
+              height={180}
+              className="h-auto w-full max-w-[180px] rounded-md border border-surface-border bg-white p-2"
+            />
             <p className="text-[10px] text-gray-400">Scan via InstaPay app</p>
           </div>
         )}
