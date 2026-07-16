@@ -13,7 +13,7 @@ function normalizeWhatsAppNumber(number: string): string {
   return cleaned;
 }
 
-export function buildWhatsAppUrl(
+export function buildWhatsAppMessage(
   items: CartItem[],
   checkout: CheckoutData,
   total: number
@@ -42,9 +42,26 @@ export function buildWhatsAppUrl(
     "Please confirm once payment is sent. Thank you!",
   ];
 
-  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "201069047415";
-  const normalizedNumber = normalizeWhatsAppNumber(rawNumber);
-  const text = encodeURIComponent(lines.join("\n"));
+  return lines.join("\n");
+}
 
-  return `https://wa.me/${normalizedNumber}?text=${text}`;
+export function buildWhatsAppDeepLink(number: string, text: string): string {
+  const normalizedNumber = normalizeWhatsAppNumber(number);
+  return `https://wa.me/${normalizedNumber}?text=${encodeURIComponent(text)}`;
+}
+
+export function buildWhatsAppAppLink(number: string, text: string): string {
+  const normalizedNumber = normalizeWhatsAppNumber(number);
+  return `whatsapp://send?phone=${normalizedNumber}&text=${encodeURIComponent(text)}`;
+}
+
+export function buildWhatsAppUrl(
+  items: CartItem[],
+  checkout: CheckoutData,
+  total: number
+): string {
+  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "201069047415";
+  const text = buildWhatsAppMessage(items, checkout, total);
+
+  return buildWhatsAppDeepLink(rawNumber, text);
 }

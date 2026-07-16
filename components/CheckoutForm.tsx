@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useCart } from "@/lib/cart-context";
 import { PaymentMethod } from "@/lib/types";
 import { formatPrice } from "@/lib/products";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { buildWhatsAppAppLink, buildWhatsAppMessage, buildWhatsAppUrl } from "@/lib/whatsapp";
 import PaymentMethods from "./PaymentMethods";
 import Icon from "./Icon";
 
@@ -48,21 +48,28 @@ export default function CheckoutForm() {
     if (!validate() || items.length === 0) return;
 
     setSubmitting(true);
-    const url = buildWhatsAppUrl(items, {
+    const checkoutData = {
       name: name.trim(),
       phone: phone.trim(),
       governorate,
       address: address.trim(),
       paymentMethod,
-    }, total);
+    };
+
+    const url = buildWhatsAppUrl(items, checkoutData, total);
+    const message = buildWhatsAppMessage(items, checkoutData, total);
+    const appLink = buildWhatsAppAppLink(
+      process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "201069047415",
+      message
+    );
 
     clearCart();
     toggleCart(false);
 
-    const opened = window.open(url, "_blank", "noopener,noreferrer");
-    if (!opened) {
+    window.location.href = appLink;
+    window.setTimeout(() => {
       window.location.href = url;
-    }
+    }, 1500);
 
     setSubmitting(false);
   };
