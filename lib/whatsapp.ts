@@ -1,6 +1,18 @@
 import { CartItem, CheckoutData } from "./types";
 import { PAYMENT_DETAILS, formatPrice } from "./products";
 
+function normalizeWhatsAppNumber(number: string): string {
+  const cleaned = number.replace(/[^\d]/g, "");
+
+  if (!cleaned) return "201069047415";
+
+  if (cleaned.startsWith("00")) return cleaned.slice(2);
+  if (cleaned.startsWith("+")) return cleaned.slice(1);
+  if (cleaned.startsWith("0") && cleaned.length > 10) return cleaned.slice(1);
+
+  return cleaned;
+}
+
 export function buildWhatsAppUrl(
   items: CartItem[],
   checkout: CheckoutData,
@@ -30,6 +42,9 @@ export function buildWhatsAppUrl(
     "Please confirm once payment is sent. Thank you!",
   ];
 
+  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "201069047415";
+  const normalizedNumber = normalizeWhatsAppNumber(rawNumber);
   const text = encodeURIComponent(lines.join("\n"));
-  return `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "0201069047415"}?text=${text}`;
+
+  return `https://wa.me/${normalizedNumber}?text=${text}`;
 }

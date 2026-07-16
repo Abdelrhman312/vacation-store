@@ -58,7 +58,12 @@ export default function CheckoutForm() {
 
     clearCart();
     toggleCart(false);
-    window.open(url, "_blank");
+
+    const opened = window.open(url, "_blank", "noopener,noreferrer");
+    if (!opened) {
+      window.location.href = url;
+    }
+
     setSubmitting(false);
   };
 
